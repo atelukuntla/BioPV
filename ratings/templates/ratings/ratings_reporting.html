@@ -1,0 +1,46 @@
+{% extends "homepage/main_template.html" %}
+
+{% block title %}
+    PV Ratings - Data Reporting
+{% endblock %}
+
+{% block content %}
+
+    <ol class="breadcrumb">
+        <li><a href="{% url 'homepage:index' %}">Home</a></li>
+        <li>PV Ratings</li>
+        <li>Data Reporting</li>
+    </ol>
+
+
+    <!-- ======== @Region: #content ======== -->
+    <div id="content">
+        <div class="container" id="about">
+            <div class="row">
+                <!--main content-->
+                <div class="col-md-9 col-md-push-3">
+                    <div class="page-header">
+                        <h2>
+                            Data Reporting
+                            <small>Report test data</small>
+                        </h2>
+                    </div>
+                    <div class="block block-border-bottom-grey block-pd-sm">
+
+                        <div class="input-group">
+                            <input id="tags"  type="text" class="form-control" placeholder="Enter module number here...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="button">Search</button>
+                                <button class="btn btn-success" type="button">Advanced Search</button>
+                            </span>
+                        </div><!-- /input-group -->
+
+                    </div>
+                </div>
+                <!-- sidebar -->
+                {% include 'ratings/sidebar.html' with active_menu=3 %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

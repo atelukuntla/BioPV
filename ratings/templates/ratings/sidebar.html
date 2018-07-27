@@ -1,0 +1,28 @@
+<div class="col-md-3 col-md-pull-9 sidebar visible-md-block visible-lg-block">
+    <ul class="nav nav-pills nav-stacked">
+        <li {% if active_menu == 1 %} class="active" {% endif %}>
+            <a href="{% url 'ratings:ratings_search' %}" class="first">
+                Name Plate Search
+                <small>Search PV componenet</small>
+            </a>
+        </li>
+        <li {% if active_menu == 2 %} class="active" {% endif %}>
+            <a href="{% url 'ratings:ratings_compare' %}">
+                Compare Ratings
+                <small>Comparison across all testings</small>
+            </a>
+        </li>
+        <li {% if active_menu == 3 %} class="active" {% endif %}>
+            <a href="{% url 'ratings:ratings_reporting' %}">
+                Data Reporting
+                <small>Submit testing report</small>
+            </a>
+        </li>
+        <li {% if active_menu == 4 %} class="active" {% endif %}>
+            <a href="{% url 'ratings:ratings_add_module' %}">
+                Add Module Type
+                <small>Add new module</small>
+            </a>
+        </li>
+    </ul>
+</div>

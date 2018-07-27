@@ -1,0 +1,86 @@
+{% extends "homepage/main_template.html" %}
+{% load staticfiles %}
+{% block title %}
+    Login
+{% endblock %}
+
+{% block content %}
+
+    <ol class="breadcrumb">
+        <li><a href="{% url 'homepage:index' %}">Home</a></li>
+        <li>Login</li>
+    </ol>
+
+
+    <!-- ======== @Region: #content ======== -->
+    <div id="content">
+        <div class="container" id="about">
+            <div class="row">
+
+                <h2 class="text-center">Login</h2>
+                <hr>
+
+
+                <!--main content-->
+		        <div class="col-md-4 col-md-offset-4">
+
+                    {% if next %}
+                        {% if user.is_authenticated %}
+                            <h3 class="alert-danger">Your account doesn't have access to this page. To proceed,
+                                please login with an account that has access.</h3>
+                        {% endif %}
+                    {% endif %}
+
+                    {% if message %}
+                        <div class="alert alert-success" role="alert">{{ message }}</div>
+                    {% endif %}
+
+                    <form class="form-horizontal" action="{% url 'login' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label" for="email"><span class="fa fa-user"></span> Username</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="username" placeholder="Enter username">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label" for="password"><span class="fa fa-key"></span> Password</label>
+                            <div class="col-sm-8">
+                                <input type="password" class="form-control" name="password" placeholder="Enter password">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label" for="type"><span class="fa fa-users"></span> Type</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" name="type">
+                                    <option value="cust">Customer</option>
+                                    <option value="mfg">Manufacturer</option>
+                                    <option value="agency">Testing Agency</option>
+                                    <option value="asu">ASU PRL</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-8">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> Remember me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+                    </form>
+                    <br>
+                    <p>Not a member? <a href="{% url 'users:register' %}">Sign Up</a></p>
+                    <p>Forgot <a href="{% url 'password_reset' %}">Password?</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

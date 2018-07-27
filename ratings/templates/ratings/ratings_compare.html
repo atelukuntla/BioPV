@@ -1,0 +1,120 @@
+{% extends "homepage/main_template.html" %}
+
+{% block title %}
+    PV Ratings - Compare Ratings
+{% endblock %}
+
+{% block content %}
+
+    <ol class="breadcrumb">
+        <li><a href="{% url 'homepage:index' %}">Home</a></li>
+        <li>PV Ratings</li>
+        <li>Compare Ratings</li>
+    </ol>
+
+
+    <!-- ======== @Region: #content ======== -->
+    <div id="content">
+        <div class="container" id="about">
+            <div class="row">
+                <!--main content-->
+                <div class="col-md-9 col-md-push-3">
+
+                    <!-- Add Content Here... -->
+                    <div class="page-header">
+                        <h2>
+                            Compare Ratings
+                            <small>Compare ratings for STC, NOTC and LowE testings</small>
+                        </h2>
+                    </div>
+                    <div class="block block-border-bottom-grey block-pd-sm">
+
+                        <label for="module-name">Select Module Type </label>
+                        <select id="module-name" name="value" class="form-control">
+                            <option value="1">Select</option>
+                            <option value="2">Type 1</option>
+                            <option value="2">Type 2</option>
+                            <option value="2">Type 3</option>
+                            <option value="2">Type 4</option>
+                            <option value="2">Type 5</option>
+                            <option value="2">Type 6</option>
+                        </select>
+
+                        <label for="module-name">Select Module 1 </label>
+                        <select id="module-name" name="module1" class="form-control">
+                            <option value="1">Select</option>
+                            <option value="2">Module Example 1</option>
+                            <option value="2">Module Example 2</option>
+                            <option value="2">Module Example 3</option>
+                            <option value="2">Module Example 4</option>
+                            <option value="2">Module Example 5</option>
+                            <option value="2">Module Example 6</option>
+                        </select>
+
+                        <label for="module-name">Select Module 2 </label>
+                        <select id="module-name" name="module2" class="form-control">
+                            <option value="1">Select</option>
+                            <option value="2">Module Example 1</option>
+                            <option value="2">Module Example 2</option>
+                            <option value="2">Module Example 3</option>
+                            <option value="2">Module Example 4</option>
+                            <option value="2">Module Example 5</option>
+                            <option value="2">Module Example 6</option>
+                        </select>
+
+                        <label for="module-name">Select Module 3 </label>
+                        <select id="module-name" name="module3" class="form-control">
+                            <option value="1">Select</option>
+                            <option value="2">Module Example 1</option>
+                            <option value="2">Module Example 2</option>
+                            <option value="2">Module Example 3</option>
+                            <option value="2">Module Example 4</option>
+                            <option value="2">Module Example 5</option>
+                            <option value="2">Module Example 6</option>
+                        </select>
+
+                        <label for="module-name">Select Module 4 </label>
+                        <select id="module-name" name="module4" class="form-control">
+                            <option value="1">Select</option>
+                            <option value="2">Module Example 1</option>
+                            <option value="2">Module Example 2</option>
+                            <option value="2">Module Example 3</option>
+                            <option value="2">Module Example 4</option>
+                            <option value="2">Module Example 5</option>
+                            <option value="2">Module Example 6</option>
+                        </select>
+
+                        <label for="module-name">Select Module 5 </label>
+                        <select id="module-name" name="module5" class="form-control">
+                            <option value="1">Select</option>
+                            <option value="2">Module Example 1</option>
+                            <option value="2">Module Example 2</option>
+                            <option value="2">Module Example 3</option>
+                            <option value="2">Module Example 4</option>
+                            <option value="2">Module Example 5</option>
+                            <option value="2">Module Example 6</option>
+                        </select>
+
+
+                        <label for="test_condition">Select Test Condition:</label>
+                        <select id="test_condition" name="test" class="form-control">
+                            <option value="1">Select</option>
+                            <option value="2">STC</option>
+                            <option value="3">LowE</option>
+                            <option value="4">NOCT</option>
+                        </select>
+
+                        <input type="submit" class="form-control btn btn-success" value="Compare">
+
+                    </div>
+
+
+                    <!-- Stop Content Here... -->
+                </div>
+                <!-- sidebar -->
+                {% include 'ratings/sidebar.html' with active_menu=2 %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

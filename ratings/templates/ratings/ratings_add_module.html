@@ -1,0 +1,385 @@
+{% extends "homepage/main_template.html" %}
+
+{% block title %}
+    PV Ratings - Add Module
+{% endblock %}
+
+{% block content %}
+
+        <ol class="breadcrumb">
+            <li><a href="{% url 'homepage:index' %}">Home</a></li>
+            <li>PV Ratings</li>
+            <li>Add Module Type</li>
+        </ol>
+
+
+    <!-- ======== @Region: #content ======== -->
+    <div id="content">
+        <div class="container" id="about">
+            <div class="row">
+                <!--main content-->
+                <div class="col-md-9 col-md-push-3">
+                    <div class="page-header">
+                        <h2>
+                            Add Module Type
+                            <small>Add a new module</small>
+                        </h2>
+                    </div>
+                    <div class="block block-border-bottom-grey block-pd-sm">
+
+                        {% if message %}
+                            <div class="alert alert-success" role="alert">{{ message }}</div>
+                        {% endif %}
+
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab1" data-toggle="tab">Enter Data</a></li>
+                            <li><a href="#tab2" data-toggle="tab">Upload XML</a></li>
+                            <li><a href="#tab3" data-toggle="tab">Upload CSV</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" id="tab1">
+
+                                <form class="form-horizontal" method="post" action="{% url 'ratings:insert_data' %}">
+                                    {% csrf_token %}
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Model Name</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="ModelName" id="ModelName" tabindex="1" placeholder="Enter Manufacturer name here..." class="form-control" >
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Model Description</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="ModelDescription" id="ModelDescription" tabindex="2" placeholder="Enter Model number here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Manufacture ID</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="ManufactureID" id="ManufactureID" tabindex="3" placeholder="Enter Manufacturer ID here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Manufacture Date</label>
+                                        <div class="col-sm-8">
+                                            <input type="date" name="ManufactureDate" id="ManufactureDate" tabindex="4" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Module Total Length x Width</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="ModuleLengthWidth" id="ModuleLengthWidth" tabindex="5" placeholder="Enter Module's Total Length x Width  (cm x cm) here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Module Weight</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="ModuleWeight" id="ModuleWeight" tabindex="6" placeholder="Enter Module's Weight (in kgs) here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Individual Cell Area</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="IndividualCellArea" id="IndividualCellArea" tabindex="7" placeholder="Enter Individual Cell Area (in cm^2) here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Cell Technology</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="CellTechnology" id="CellTechnology" tabindex="8" placeholder="Enter Cell Technology here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                     <div class="form-group">
+                                        <label class="col-sm-4 control-label">Cell Manufacturer</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="CellManufacturer" id="CellManufacturer" tabindex="9" placeholder="Enter Cell Manufacturer here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Part Number</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="PartNumber" id="PartNumber" tabindex="10" placeholder="Enter Part Number here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Part Number</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="CellManufacturingLocation" id="CellManufacturingLocation" tabindex="11" placeholder="Enter Cell Manufacturing Location here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Total Number Of Cells</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="TotalNumberOfCells" id="TotalNumberOfCells" tabindex="12" placeholder="Enter Total Number Of Cells here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Number Of Cells In Parallel</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="NumberOfCellsInParallel" id="NumberOfCellsInParallel" tabindex="13" placeholder="Enter Number Of Cells In Parallel here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Number Of Cells In Series</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="NumberOfCellsInSeries" id="NumberOfCellsInSeries" tabindex="14" placeholder="Enter Number Of Cells In Series here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Number of By-Pass Diodes</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="ByPassDiodes" id="ByPassDiodes" tabindex="15" placeholder="Enter Number of By-Pass Diodes here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Bypass Diode Rating (A)</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="ByPassDiodeRating" id="ByPassDiodeRating" tabindex="16" placeholder="Enter Bypass Diode Rating (A) here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">ByPass Diode Max Junction Temperature</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="ByPassDiodeMaxTemp" id="ByPassDiodeMaxTemp" tabindex="17" placeholder="Enter ByPass Diode Max Junction Temperature here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Series Fuse Rating (A)</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="SeriesFuseRating" id="SeriesFuseRating" tabindex="18" placeholder="Enter Series Fuse Rating (A) here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Interconnect Material</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="InterconnectMaterial" id="InterconnectMaterial" tabindex="19" placeholder="Enter Interconnect Material here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Supplier Model Number</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="SupplierModelNumber" id="SupplierModelNumber" tabindex="20" placeholder="Enter Supplier Model Number here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Superstrate Type</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="SuperstrateType" id="SuperstrateType" tabindex="21" placeholder="Enter Superstrate Type here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Superstrate Part Number</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="SuperstratePartNumber" id="SuperstratePartNumber" tabindex="22" placeholder="Enter Superstrate Part Number here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Superstrate Manufacturer</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="SuperstrateManufacturer" id="SuperstrateManufacturer" tabindex="23" placeholder="Enter Superstrate Manufacturer here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Superstrate Manufacturer</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="SubstrateType" id="SubstrateType" tabindex="24" placeholder="Enter Substrate Type here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Substrate Part Number</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="SubstratePartNumber" id="SubstratePartNumber" tabindex="25" placeholder="Enter Substrate Part Number here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Substrate Manufacturer</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="SubstrateManufacturer" id="SubstrateManufacturer" tabindex="26" placeholder="Enter Substrate Manufacturer here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Frame Type/Material</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="FrameType" id="FrameType" tabindex="27" placeholder="Enter Frame Type/Material here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Frame Adhesive</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="FrameAdhesive" id="FrameAdhesive" tabindex="28" placeholder="Enter Frame Adhesive here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Encapsulant Type</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="EncapsulantType" id="EncapsulantType" tabindex="30" placeholder="Enter Encapsulant Type here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Encapsulant Manufacturer</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="EncapsulantManufacturer" id="EncapsulantManufacturer" tabindex="31" placeholder="Enter Encapsulant Manufacturer here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Encapsulant Part Number</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="EncapsulantPartNumber" id="EncapsulantPartNumber" tabindex="33" placeholder="Enter Encapsulant Part Number here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Junction Box Type</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="JunctionBoxType" id="JunctionBoxType" tabindex="34" placeholder="Enter Junction Box Type here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Junction Box Type</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="JunctionBoxType" id="JunctionBoxType" tabindex="35" placeholder="Enter Junction Box Type here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Junction Box Manufacturer</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="JunctionBoxManufacturer" id="JunctionBoxManufacturer" tabindex="36" placeholder="Enter Junction Box Manufacturer here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Junction Box Part Number</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="JunctionBoxPartNumber" id="JunctionBoxPartNumber" tabindex="37" placeholder="Enter Junction Box Part Number here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Junction Box Potting Material</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="JunctionBoxPottingMaterial" id="JunctionBoxPottingMaterial" tabindex="38" placeholder="Enter Junction Box Potting Material here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Junction Box Adhesive</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="JunctionBoxAdhesive" id="JunctionBoxAdhesive" tabindex="39" placeholder="Enter Junction Box Adhesive here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Cable Type</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="CableType" id="CableType" tabindex="39" placeholder="Enter Cable Type here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Cable Type</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="ConnectorType" id="ConnectorType" tabindex="40" placeholder="Enter Connector Type here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Max System Voltage (V)</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="MaxSysVoltage" id="MaxSysVoltage" tabindex="41" placeholder="Enter Max System Voltage (V) here..." class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-4 col-sm-8">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+
+
+                            </div>
+                            <div class="tab-pane fade" id="tab2">
+
+                                <form method="post" enctype="multipart/form-data" action="{% url 'ratings:upload_xml' %}">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="xml_file">Upload XML File</label>
+                                        <input type="file" id="id_xml_file" name="xml_file" accept=".xml">
+                                        <span id="helpBlock" class="help-block">
+                                            Upload XML file in the
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Uploading file in a given structure will reduce errors in processing data.">
+                                                pre-defined format <i class="fa fa-question-circle"></i>
+                                            </a>
+                                             . Please <a href="#">click here</a> for XML formatting options.
+                                        </span>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+
+                            </div>
+                            <div class="tab-pane fade" id="tab3">
+
+                                <form method="post" enctype="multipart/form-data" action="{% url 'ratings:upload_csv' %}">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="csv_file">Upload CSV File</label>
+                                        <input type="file" id="id_csv_file" name="csv_file" accept=".csv">
+                                        <span id="helpBlock" class="help-block">
+                                            Upload CSV file in the
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Uploading file in a given structure will reduce errors in processing data.">
+                                                pre-defined format <i class="fa fa-question-circle"></i>
+                                            </a>
+                                             . Please <a href="#">click here</a> for CSV formatting options.
+                                        </span>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- sidebar -->
+                {% include 'ratings/sidebar.html' with active_menu=4 %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

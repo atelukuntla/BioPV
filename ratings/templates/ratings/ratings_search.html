@@ -1,0 +1,128 @@
+{% extends "homepage/main_template.html" %}
+
+{% block title %}
+    PV Ratings - Name Plate Search
+{% endblock %}
+
+{% block content %}
+
+    <ol class="breadcrumb">
+            <li><a href="{% url 'homepage:index' %}">Home</a></li>
+            <li>PV Ratings</li>
+            <li>Name Plate Search</li>
+        </ol>
+
+    <script>
+        $( function() {
+            var availableTags = [
+                "ActionScript",
+                "AppleScript",
+                "Asp",
+                "BASIC",
+                "C",
+                "C++",
+                "Clojure",
+                "COBOL",
+                "ColdFusion",
+                "Erlang",
+                "Fortran",
+                "Groovy",
+                "Haskell",
+                "Java",
+                "JavaScript",
+                "Lisp",
+                "Perl",
+                "PHP",
+                "Python",
+                "Ruby",
+                "Scala",
+                "Scheme"
+            ];
+
+            $( "#tags" ).autocomplete({
+                source: availableTags
+            });
+        });
+
+    </script>
+
+{#    <!-- ======== @Region: #content ======== -->#}
+{#    <div id="content">#}
+{#            <div class="container">#}
+{##}
+{#                <div class="col-md-3">#}
+{#                    <div class="list-group wizard-menu">#}
+{#                        <a href="{% url 'ratings:ratings_search' %}" class="list-group-item active step-1-menu" data-for=".step-1">#}
+{#                            <h5 class="list-group-item-heading">Name Plate Search</h5>#}
+{#                        </a>#}
+{#                        <a href="{% url 'ratings:ratings_compare' %}" class="list-group-item step-2-menu" data-for=".step-2">#}
+{#                            <h5 class="list-group-item-heading">Compare Ratings</h5>#}
+{#                        </a>#}
+{#                        <a href="{% url 'ratings:ratings_compare_stc' %}" class="list-group-item step-3-menu" data-for=".step-3">#}
+{#                            <h6 class="list-group-item-heading">STC</h6>#}
+{#                        </a>#}
+{#                        <a href="{% url 'ratings:ratings_compare_notc' %}" class="list-group-item step-4-menu" data-for=".step-4">#}
+{#                            <h6 class="list-group-item-heading">NOTC</h6>#}
+{#                        </a>#}
+{#                        <a href="{% url 'ratings:ratings_compare_lowe' %}" class="list-group-item step-5-menu" data-for=".step-5">#}
+{#                            <h6 class="list-group-item-heading">LowE</h6>#}
+{#                        </a>#}
+{#                        <a href="{% url 'ratings:ratings_reporting' %}" class="list-group-item step-6-menu" data-for=".step-6">#}
+{#                            <h5 class="list-group-item-heading">Data Reporting</h5>#}
+{#                        </a>#}
+{#                        <a href="{% url 'ratings:ratings_add_module' %}" class="list-group-item step-7-menu" data-for=".step-7">#}
+{#                            <h5 class="list-group-item-heading">Add Module Type</h5>#}
+{#                        </a>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#                <div class="col-md-9">#}
+{#                    <h3 class="block-title text-weight-strong text-uppercase">#}
+{#                        Name Plate Search#}
+{#                    </h3>#}
+{#                    <hr>#}
+{##}
+{#                     <div class="input-group">#}
+{#                         <input id="tags"  type="text" class="form-control" placeholder="Enter module number here...">#}
+{#                         <span class="input-group-btn">#}
+{#                             <button class="btn btn-primary" type="button">Search</button>#}
+{#                             <button class="btn btn-success" type="button">Advanced Search</button>#}
+{#                         </span>#}
+{#                     </div><!-- /input-group -->#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#    </div>#}
+
+    <!-- ======== @Region: #content ======== -->
+    <div id="content">
+        <div class="container" id="about">
+            <div class="row">
+                <!--main content-->
+                <div class="col-md-9 col-md-push-3">
+                    <div class="page-header">
+                        <h2>
+                            Name Plate Search
+                            <small>Search from catalog</small>
+                        </h2>
+                    </div>
+                    <div class="block block-border-bottom-grey block-pd-sm">
+
+                        <div class="input-group">
+                            <input id="tags"  type="text" class="form-control" placeholder="Enter module number here...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="button">Search</button>
+                                <button class="btn btn-success" type="button">Advanced Search</button>
+                            </span>
+                        </div><!-- /input-group -->
+
+                    </div>
+                </div>
+                <!-- sidebar -->
+                {% include 'ratings/sidebar.html' with active_menu=1 %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

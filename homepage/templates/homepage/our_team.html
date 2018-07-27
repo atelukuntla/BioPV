@@ -1,0 +1,58 @@
+{% extends "homepage/main_template.html" %}
+{% load staticfiles %}
+{% block title %}
+    Our Team
+{% endblock %}
+
+{% block content %}
+
+    <ol class="breadcrumb">
+        <li><a href="{% url 'homepage:index' %}">Home</a></li>
+        <li>Our Team</li>
+    </ol>
+
+
+    <!-- ======== @Region: #content ======== -->
+    <div id="content">
+        <div class="container" id="about">
+            <div class="row">
+                <!--main content-->
+                <div class="col-md-9 col-md-push-3">
+                    <div class="page-header">
+                        <h1>
+                            Our Team
+                            <small>Our team of stars</small>
+                        </h1>
+                    </div>
+                    <div class="block block-border-bottom-grey block-pd-sm">
+                     <div class="row text-center">
+
+                                <div class="col-sm-4 col-xs-6">
+                                    <h1><span class="glyphicon glyphicon-user"></span></h1>
+                                    <h3>Dr. Joseph Kuitche</h3>
+                                    <p><a href="mailto:kuitche@asu.edu?Subject=Hello%20" target="_top">kuitche@asu.edu</a></p>
+                                </div>
+
+                                <div class="col-sm-4 col-xs-6">
+                                    <h1><span class="glyphicon glyphicon-user"></span></h1>
+                                    <h3>Abhishek Zambre</h3>
+                                    <p><a href="mailto:kuitche@asu.edu?Subject=Hello%20Abhishek" target="_top">azambre@asu.edu</a></p>
+                                </div>
+
+                                <div class="col-sm-4 col-xs-6">
+                                    <h1><span class="glyphicon glyphicon-user"></span></h1>
+                                    <h3>Apoorva Telukuntla</h3>
+                                    <p><a href="mailto:kuitche@asu.edu?Subject=Hello%20" target="_top">atelukun@asu.edu@asu.edu</a></p>
+                                </div>
+
+                            </div>
+                    </div>
+                </div>
+                <!-- sidebar -->
+                {% include 'homepage/sidebar.html' with active_menu=2 %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,64 @@
+ {% extends "homepage/main_template.html" %}
+{% load staticfiles %}
+{% block title %}
+    Contact Us
+{% endblock %}
+
+{% block content %}
+
+    <ol class="breadcrumb">
+        <li><a href="{% url 'homepage:index' %}">Home</a></li>
+        <li>Contact Us</li>
+    </ol>
+
+    <!-- ======== @Region: #content ======== -->
+    <div id="content">
+        <div class="container" id="about">
+            <div class="row">
+                <!--main content-->
+                <div class="col-md-9 col-md-push-3">
+                    <div class="page-header">
+                        <h1>
+                            Contact Us
+                            <small>How to get in touch</small>
+                        </h1>
+                    </div>
+                    <div class="block block-border-bottom-grey block-pd-sm">
+
+                            <div class="row text-center">
+
+                                <div class="col-sm-4 col-xs-6">
+                                    <h1><span class="glyphicon glyphicon-earphone"></span></h1>
+                                    <h3>Phone</h3>
+                                    <p><a href="tel:14807271220">+1 (480) 727-1220</a></p>
+                                </div>
+
+                                <div class="col-sm-4 col-xs-6">
+                                    <h1><span class="glyphicon glyphicon-map-marker"></span></h1>
+                                    <h3>Address</h3>
+                                    <p>7349 Innovation Way S,<br>
+                                        Mesa, AZ 85212.</p>
+                                </div>
+
+                                <div class="col-sm-4 col-xs-6">
+                                    <h1><span class="glyphicon glyphicon-send"></span></h1>
+                                    <h3>E-mail</h3>
+                                    <p><a href="mailto:kuitche@asu.edu?Subject=Hello%20" target="_top">kuitche@asu.edu</a></p>
+                                </div>
+
+                            </div>
+                            <br>
+                            <div class="row text-center">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13338.222552013178!2d-111.6741693!3d33.3042864!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x73f9fb94f99af148!2sPhotovoltaic+Reliability+Laboratory!5e0!3m2!1sen!2sus!4v1498702047024"
+                                        width="80%" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            </div>
+
+                        </div>
+                </div>
+                <!-- sidebar -->
+                {% include 'homepage/sidebar.html' with active_menu=3 %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
